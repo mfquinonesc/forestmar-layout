@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cálculo de ganancias | Forestmar</title>
+  <meta name="description" content="Cálculo de ganancias a partir de ingresos y gastos (RF09).">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="fm-barra-movil d-lg-none">
+    <a class="fm-marca" href="inicio.html"><img src="img/logo-forestmar.svg" alt="" width="40" height="40"><span><strong>Forestmar</strong></span></a>
+    <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral"><i class="bi bi-list" aria-hidden="true"></i> Menú</button>
+  </header>
+  <div class="fm-app">
+    <aside class="fm-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="menuLateral" aria-label="Menú lateral">
+      <div class="offcanvas-header d-lg-none justify-content-end">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#menuLateral" aria-label="Cerrar menú"></button>
+      </div>
+      <nav class="offcanvas-body" aria-label="Menú principal">
+        <a class="fm-marca d-none d-lg-flex" href="inicio.html">
+          <img src="img/logo-forestmar.svg" alt="">
+          <span><strong>Forestmar</strong><span>Vivero · Gestión</span></span>
+        </a>
+        <p class="seccion" id="sec-inventario">Inventario</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-inventario">
+          <li class="nav-item"><a class="nav-link" href="inicio.html"><i class="bi bi-house" aria-hidden="true"></i>Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="registrar-planta.html"><i class="bi bi-plus-lg" aria-hidden="true"></i>Registrar planta</a></li>
+          <li class="nav-item"><a class="nav-link" href="actualizar-inventario.html"><i class="bi bi-arrow-repeat" aria-hidden="true"></i>Actualizar inventario</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultar-inventario.html"><i class="bi bi-search" aria-hidden="true"></i>Consultar inventario</a></li>
+        </ul>
+        <p class="seccion" id="sec-finanzas">Finanzas</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-finanzas">
+          <li class="nav-item"><a class="nav-link" href="registrar-gasto.html"><i class="bi bi-currency-dollar" aria-hidden="true"></i>Registrar gasto</a></li>
+          <li class="nav-item"><a class="nav-link" href="reporte-ventas.html"><i class="bi bi-table" aria-hidden="true"></i>Reportes de ventas</a></li>
+          <li class="nav-item"><a class="nav-link" href="ganancias.html" aria-current="page"><i class="bi bi-pie-chart" aria-hidden="true"></i>Cálculo de ganancias</a></li>
+        </ul>
+        <a class="nav-link salir" href="index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="fm-principal">
+      <header class="fm-encabezado">
+        <nav aria-label="Migas de pan"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="inicio.html">Finanzas</a></li><li class="breadcrumb-item active" aria-current="page">Cálculo de ganancias</li></ol></nav>
+        <div class="fm-usuario">
+          <a class="ayuda d-none d-md-inline-flex" href="#ayuda" data-bs-toggle="modal" data-bs-target="#modalAyuda"><i class="bi bi-question-circle" aria-hidden="true"></i>Ayuda</a>
+          <span class="avatar" aria-hidden="true">LR</span>
+          <span class="nombre d-none d-sm-block"><strong>Laura Rincón</strong><span>Rol: Gerente</span></span>
+        </div>
+      </header>
+      <main id="contenido" class="fm-contenido">
+        <h1 class="mb-1">Cálculo de ganancias</h1>
+        <p class="text-apoyo mb-4">Ganancia neta = ingresos por ventas − gastos registrados.</p>
+        <form class="fm-tarjeta mb-3" novalidate>
+          <div class="row g-3 align-items-end">
+            <fieldset class="col-12 col-xxl-4"><legend class="form-label fs-6">Periodo</legend>
+              <div class="fm-seg d-flex gap-2 flex-wrap">
+                <input type="radio" class="btn-check" name="per" id="gDia"><label class="btn" for="gDia">Día</label>
+                <input type="radio" class="btn-check" name="per" id="gMes" checked><label class="btn" for="gMes">Mes</label>
+                <input type="radio" class="btn-check" name="per" id="gAnio"><label class="btn" for="gAnio">Año</label>
+              </div>
+            </fieldset>
+            <div class="col-12 col-md-6 col-xl-3"><label for="mes" class="form-label">Mes</label><select id="mes" class="form-select"><option>Octubre 2026</option><option>Septiembre 2026</option></select></div>
+            <div class="col-12 col-md-6 col-xl-5 d-flex gap-3 align-items-center"><button type="submit" class="btn btn-fm">Calcular</button><a class="btn-link-fm" href="inicio.html">Cancelar</a></div>
+          </div>
+        </form>
+        <section class="row g-3 mb-3" aria-label="Resultado del cálculo">
+          <div class="col-12 col-md-4"><div class="fm-tarjeta kpi h-100"><p class="etiqueta mb-0">Ingresos por ventas</p><p class="valor">$ 10.070.500</p><p class="small text-apoyo mb-0">214 facturas</p></div></div>
+          <div class="col-12 col-md-4"><div class="fm-tarjeta kpi h-100"><p class="etiqueta mb-0">Gastos registrados</p><p class="valor negativo">− $ 3.150.000</p><p class="small text-apoyo mb-0">12 gastos</p></div></div>
+          <div class="col-12 col-md-4"><div class="fm-tarjeta kpi kpi-destacado h-100"><p class="etiqueta mb-0">Ganancia neta</p><p class="valor positivo">$ 6.920.500</p><p class="small mb-0"><i class="bi bi-caret-up-fill" aria-hidden="true"></i> Positiva · margen 68,7 %</p></div></div>
+        </section>
+        <section class="fm-tarjeta" aria-labelledby="tGastosTipo">
+          <h2 id="tGastosTipo" class="mb-3">Gastos por tipo</h2>
+          <div class="table-responsive"><table class="table">
+            <thead><tr><th scope="col">Tipo de gasto</th><th scope="col" class="text-end">Valor</th><th scope="col" class="text-end">% del gasto</th></tr></thead>
+            <tbody>
+                <tr><td>Pago de empleados</td><td class="text-end">$ 2.400.000</td><td class="text-end">76,2 %</td></tr>
+                <tr><td>Compra de insumos</td><td class="text-end">$ 420.000</td><td class="text-end">13,3 %</td></tr>
+                <tr><td>Transporte</td><td class="text-end">$ 180.000</td><td class="text-end">5,7 %</td></tr>
+                <tr><td>Servicios</td><td class="text-end">$ 150.000</td><td class="text-end">4,8 %</td></tr>
+            </tbody>
+          </table></div>
+          <div class="d-flex flex-wrap gap-3 mt-3"><button type="button" class="btn btn-fm-verde"><i class="bi bi-download" aria-hidden="true"></i>Descargar resumen PDF</button><a class="btn btn-fm-borde" href="reporte-ventas.html">Ver reporte de ventas</a></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="tituloAyuda" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title h5" id="tituloAyuda">Ayuda</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+      <div class="modal-body"><p>Usa el menú lateral para ir a cada módulo. La opción resaltada indica dónde estás. Si tienes problemas para ingresar, comunícate con el administrador del sistema.</p></div>
+    </div></div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>

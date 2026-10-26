@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registrar venta | Forestmar</title>
+  <meta name="description" content="Registro de ventas con canasta de productos (RF04).">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="fm-barra-movil d-lg-none">
+    <a class="fm-marca" href="inicio-vendedor.html"><img src="img/logo-forestmar.svg" alt="" width="40" height="40"><span><strong>Forestmar</strong></span></a>
+    <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral"><i class="bi bi-list" aria-hidden="true"></i> Menú</button>
+  </header>
+  <div class="fm-app">
+    <aside class="fm-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="menuLateral" aria-label="Menú lateral">
+      <div class="offcanvas-header d-lg-none justify-content-end">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#menuLateral" aria-label="Cerrar menú"></button>
+      </div>
+      <nav class="offcanvas-body" aria-label="Menú principal">
+        <a class="fm-marca d-none d-lg-flex" href="inicio-vendedor.html">
+          <img src="img/logo-forestmar.svg" alt="">
+          <span><strong>Forestmar</strong><span>Vivero · Gestión</span></span>
+        </a>
+        <p class="seccion" id="sec-ventas">Ventas</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-ventas">
+          <li class="nav-item"><a class="nav-link" href="inicio-vendedor.html"><i class="bi bi-house" aria-hidden="true"></i>Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultar-inventario.html"><i class="bi bi-search" aria-hidden="true"></i>Consultar inventario</a></li>
+          <li class="nav-item"><a class="nav-link" href="registrar-venta.html" aria-current="page"><i class="bi bi-cart3" aria-hidden="true"></i>Registrar venta</a></li>
+          <li class="nav-item"><a class="nav-link" href="factura.html"><i class="bi bi-receipt" aria-hidden="true"></i>Facturas</a></li>
+        </ul>
+        <a class="nav-link salir" href="index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="fm-principal">
+      <header class="fm-encabezado">
+        <nav aria-label="Migas de pan"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="inicio-vendedor.html">Ventas</a></li><li class="breadcrumb-item active" aria-current="page">Registrar venta</li></ol></nav>
+        <div class="fm-usuario">
+          <a class="ayuda d-none d-md-inline-flex" href="#ayuda" data-bs-toggle="modal" data-bs-target="#modalAyuda"><i class="bi bi-question-circle" aria-hidden="true"></i>Ayuda</a>
+          <span class="avatar" aria-hidden="true">CP</span>
+          <span class="nombre d-none d-sm-block"><strong>Camilo Pardo</strong><span>Rol: Vendedor</span></span>
+        </div>
+      </header>
+      <main id="contenido" class="fm-contenido">
+        <ol class="fm-pasos" aria-label="Pasos de la venta"><li aria-current="step">1. Productos</li><li>2. Confirmar</li><li>3. Factura</li></ol>
+        <h1 class="mb-3">Registrar venta <span class="fs-6 text-apoyo fw-bold">· Paso 1 de 3: productos</span></h1>
+        <div class="row g-3">
+          <section class="col-12 col-xl-6" aria-label="Agregar productos">
+            <form class="fm-tarjeta h-100" novalidate>
+              <label for="codVenta" class="form-label">Código o nombre de la planta</label>
+              <div class="d-flex gap-2 mb-3"><input id="codVenta" class="form-control" value="FM-0012"><button type="button" class="btn btn-fm-verde">Buscar</button></div>
+              <p class="aviso aviso-info">Ficus benjamina · Disponibles: <span id="disponibles">83</span> · Precio: $ 22.000</p>
+              <label for="cantVenta" class="form-label">Cantidad</label>
+              <div class="fm-cantidad">
+                <button type="button" class="btn btn-fm-borde" data-cant="-1" aria-label="Disminuir cantidad">−</button>
+                <input id="cantVenta" type="number" class="form-control" value="2" min="1" max="83" aria-describedby="ayudaVenta">
+                <button type="button" class="btn btn-fm-borde" data-cant="1" aria-label="Aumentar cantidad">+</button>
+              </div>
+              <p id="ayudaVenta" class="small text-apoyo mt-2" aria-live="polite">No puedes vender más de las unidades disponibles.</p>
+              <button type="button" class="btn btn-fm-verde mb-4"><i class="bi bi-plus-lg" aria-hidden="true"></i>Agregar a la canasta</button>
+              <fieldset><legend class="form-label fs-6">Cliente (opcional para la factura)</legend>
+                <div class="row g-2">
+                  <div class="col-12 col-sm-6"><label for="docCli" class="visually-hidden">Documento del cliente</label><input id="docCli" class="form-control" value="CC 1.020.334.556"></div>
+                  <div class="col-12 col-sm-6"><label for="nomCli" class="visually-hidden">Nombre del cliente</label><input id="nomCli" class="form-control" value="Andrea Molina" autocomplete="name"></div>
+                </div>
+              </fieldset>
+            </form>
+          </section>
+          <section class="col-12 col-xl-6" aria-labelledby="tCanasta">
+            <div class="fm-tarjeta h-100">
+              <h2 id="tCanasta" class="mb-3">Canasta (3 productos)</h2>
+              <div class="table-responsive"><table class="table">
+                <thead><tr><th scope="col">Planta</th><th scope="col" class="text-end">Cant.</th><th scope="col" class="text-end">Precio u.</th><th scope="col" class="text-end">Subtotal</th><th scope="col"><span class="visually-hidden">Acción</span></th></tr></thead>
+                <tbody>
+                <tr><td>Ficus benjamina</td><td class="text-end">2</td><td class="text-end">$ 22.000</td><td class="text-end">$ 44.000</td><td><a href="#" class="link-dark">Quitar<span class="visually-hidden"> Ficus benjamina</span></a></td></tr>
+                <tr><td>Suculenta echeveria</td><td class="text-end">5</td><td class="text-end">$ 6.000</td><td class="text-end">$ 30.000</td><td><a href="#" class="link-dark">Quitar<span class="visually-hidden"> Suculenta echeveria</span></a></td></tr>
+                <tr><td>Helecho espada</td><td class="text-end">1</td><td class="text-end">$ 9.500</td><td class="text-end">$ 9.500</td><td><a href="#" class="link-dark">Quitar<span class="visually-hidden"> Helecho espada</span></a></td></tr>
+                </tbody>
+                <tfoot><tr><td colspan="3">Total</td><td class="text-end" colspan="2">$ 83.500</td></tr></tfoot>
+              </table></div>
+              <div class="d-flex flex-wrap gap-3 align-items-center mt-4"><a class="btn btn-fm" href="confirmar-venta.html">Continuar a confirmar</a><a class="btn-link-fm" href="inicio-vendedor.html">Cancelar venta</a></div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="tituloAyuda" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title h5" id="tituloAyuda">Ayuda</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+      <div class="modal-body"><p>Usa el menú lateral para ir a cada módulo. La opción resaltada indica dónde estás. Si tienes problemas para ingresar, comunícate con el administrador del sistema.</p></div>
+    </div></div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>

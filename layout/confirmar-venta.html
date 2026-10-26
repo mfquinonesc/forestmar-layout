@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confirmar venta | Forestmar</title>
+  <meta name="description" content="Confirmación de la venta y descuento automático del inventario (RF04, RF06).">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="fm-barra-movil d-lg-none">
+    <a class="fm-marca" href="inicio-vendedor.html"><img src="img/logo-forestmar.svg" alt="" width="40" height="40"><span><strong>Forestmar</strong></span></a>
+    <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral"><i class="bi bi-list" aria-hidden="true"></i> Menú</button>
+  </header>
+  <div class="fm-app">
+    <aside class="fm-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="menuLateral" aria-label="Menú lateral">
+      <div class="offcanvas-header d-lg-none justify-content-end">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#menuLateral" aria-label="Cerrar menú"></button>
+      </div>
+      <nav class="offcanvas-body" aria-label="Menú principal">
+        <a class="fm-marca d-none d-lg-flex" href="inicio-vendedor.html">
+          <img src="img/logo-forestmar.svg" alt="">
+          <span><strong>Forestmar</strong><span>Vivero · Gestión</span></span>
+        </a>
+        <p class="seccion" id="sec-ventas">Ventas</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-ventas">
+          <li class="nav-item"><a class="nav-link" href="inicio-vendedor.html"><i class="bi bi-house" aria-hidden="true"></i>Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultar-inventario.html"><i class="bi bi-search" aria-hidden="true"></i>Consultar inventario</a></li>
+          <li class="nav-item"><a class="nav-link" href="registrar-venta.html" aria-current="page"><i class="bi bi-cart3" aria-hidden="true"></i>Registrar venta</a></li>
+          <li class="nav-item"><a class="nav-link" href="factura.html"><i class="bi bi-receipt" aria-hidden="true"></i>Facturas</a></li>
+        </ul>
+        <a class="nav-link salir" href="index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="fm-principal">
+      <header class="fm-encabezado">
+        <nav aria-label="Migas de pan"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="inicio-vendedor.html">Ventas</a></li><li class="breadcrumb-item"><a href="registrar-venta.html">Registrar venta</a></li><li class="breadcrumb-item active" aria-current="page">Confirmar</li></ol></nav>
+        <div class="fm-usuario">
+          <a class="ayuda d-none d-md-inline-flex" href="#ayuda" data-bs-toggle="modal" data-bs-target="#modalAyuda"><i class="bi bi-question-circle" aria-hidden="true"></i>Ayuda</a>
+          <span class="avatar" aria-hidden="true">CP</span>
+          <span class="nombre d-none d-sm-block"><strong>Camilo Pardo</strong><span>Rol: Vendedor</span></span>
+        </div>
+      </header>
+      <main id="contenido" class="fm-contenido">
+        <ol class="fm-pasos" aria-label="Pasos de la venta"><li class="hecho">1. Productos</li><li aria-current="step">2. Confirmar</li><li>3. Factura</li></ol>
+        <h1 class="mb-3">Registrar venta · Paso 2 de 3</h1>
+        <p class="text-apoyo">Revisa el resumen antes de registrar la venta.</p>
+        <button type="button" class="btn btn-fm-borde" data-bs-toggle="modal" data-bs-target="#modalConfirmar">Ver resumen de la venta</button>
+        <div class="modal fade" id="modalConfirmar" tabindex="-1" aria-labelledby="tConfirmar" aria-describedby="dConfirmar" aria-hidden="true" data-abrir="si">
+          <div class="modal-dialog modal-dialog-centered"><div class="modal-content p-2">
+            <div class="modal-header border-0 pb-0"><h2 class="modal-title h4 fw-bold" style="color:var(--fm-verde)" id="tConfirmar">¿Confirmar la venta?</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+            <div class="modal-body">
+              <p id="dConfirmar" class="text-apoyo">Al registrarla se descontarán estas unidades del inventario.</p>
+              <ul class="list-unstyled border-bottom pb-2 mb-2">
+                <li class="d-flex justify-content-between py-1"><span>Ficus benjamina × 2</span><span>$ 44.000</span></li>
+                <li class="d-flex justify-content-between py-1"><span>Suculenta echeveria × 5</span><span>$ 30.000</span></li>
+                <li class="d-flex justify-content-between py-1"><span>Helecho espada × 1</span><span>$ 9.500</span></li>
+              </ul>
+              <p class="d-flex justify-content-between fs-4 fw-bold mb-0"><span>Total</span><span>$ 83.500</span></p>
+            </div>
+            <div class="modal-footer border-0"><a class="btn btn-fm-borde" href="registrar-venta.html">Volver y editar</a><a class="btn btn-fm" href="factura.html">Registrar venta</a></div>
+          </div></div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="tituloAyuda" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title h5" id="tituloAyuda">Ayuda</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+      <div class="modal-body"><p>Usa el menú lateral para ir a cada módulo. La opción resaltada indica dónde estás. Si tienes problemas para ingresar, comunícate con el administrador del sistema.</p></div>
+    </div></div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>

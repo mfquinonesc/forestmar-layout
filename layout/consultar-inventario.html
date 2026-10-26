@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consultar inventario | Forestmar</title>
+  <meta name="description" content="Consulta del inventario del vivero con filtros (RF03).">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="fm-barra-movil d-lg-none">
+    <a class="fm-marca" href="inicio-vendedor.html"><img src="img/logo-forestmar.svg" alt="" width="40" height="40"><span><strong>Forestmar</strong></span></a>
+    <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral"><i class="bi bi-list" aria-hidden="true"></i> Menú</button>
+  </header>
+  <div class="fm-app">
+    <aside class="fm-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="menuLateral" aria-label="Menú lateral">
+      <div class="offcanvas-header d-lg-none justify-content-end">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#menuLateral" aria-label="Cerrar menú"></button>
+      </div>
+      <nav class="offcanvas-body" aria-label="Menú principal">
+        <a class="fm-marca d-none d-lg-flex" href="inicio-vendedor.html">
+          <img src="img/logo-forestmar.svg" alt="">
+          <span><strong>Forestmar</strong><span>Vivero · Gestión</span></span>
+        </a>
+        <p class="seccion" id="sec-ventas">Ventas</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-ventas">
+          <li class="nav-item"><a class="nav-link" href="inicio-vendedor.html"><i class="bi bi-house" aria-hidden="true"></i>Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultar-inventario.html" aria-current="page"><i class="bi bi-search" aria-hidden="true"></i>Consultar inventario</a></li>
+          <li class="nav-item"><a class="nav-link" href="registrar-venta.html"><i class="bi bi-cart3" aria-hidden="true"></i>Registrar venta</a></li>
+          <li class="nav-item"><a class="nav-link" href="factura.html"><i class="bi bi-receipt" aria-hidden="true"></i>Facturas</a></li>
+        </ul>
+        <a class="nav-link salir" href="index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="fm-principal">
+      <header class="fm-encabezado">
+        <nav aria-label="Migas de pan"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="inicio-vendedor.html">Inventario</a></li><li class="breadcrumb-item active" aria-current="page">Consultar inventario</li></ol></nav>
+        <div class="fm-usuario">
+          <a class="ayuda d-none d-md-inline-flex" href="#ayuda" data-bs-toggle="modal" data-bs-target="#modalAyuda"><i class="bi bi-question-circle" aria-hidden="true"></i>Ayuda</a>
+          <span class="avatar" aria-hidden="true">CP</span>
+          <span class="nombre d-none d-sm-block"><strong>Camilo Pardo</strong><span>Rol: Vendedor</span></span>
+        </div>
+      </header>
+      <main id="contenido" class="fm-contenido">
+        <h1 class="mb-1">Consultar inventario</h1>
+        <p class="text-apoyo mb-4">Si no diligencias ningún criterio, verás el inventario completo.</p>
+        <form class="fm-tarjeta mb-3" role="search" aria-label="Filtros de inventario">
+          <div class="row g-3 align-items-end">
+            <div class="col-12 col-md-6 col-xl-3"><label for="fNombre" class="form-label">Nombre o código</label><input id="fNombre" type="search" class="form-control" placeholder="Ej.: ficus"></div>
+            <div class="col-12 col-md-6 col-xl-3"><label for="fTipo" class="form-label">Tipo de planta</label><select id="fTipo" class="form-select"><option>Todos</option><option>Ornamental</option><option>Frutal</option><option>Forestal</option><option>Suculenta</option></select></div>
+            <div class="col-12 col-md-6 col-xl-3"><label for="fDisp" class="form-label">Disponibilidad</label><select id="fDisp" class="form-select"><option>Todas</option><option>Disponibles</option><option>Bajas</option><option>Agotadas</option></select></div>
+            <div class="col-12 col-md-6 col-xl-3 d-flex gap-2"><button type="submit" class="btn btn-fm flex-fill">Consultar</button><button type="reset" class="btn btn-fm-borde flex-fill">Limpiar</button></div>
+          </div>
+        </form>
+        <section class="fm-tarjeta" aria-labelledby="tRes">
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+            <h2 id="tRes" class="h5 mb-0" aria-live="polite">7 plantas encontradas</h2>
+            <a class="btn-link-fm" href="#fNombre">Modificar consulta</a>
+          </div>
+          <div class="table-responsive d-none d-md-block"><table class="table">
+            <caption class="visually-hidden">Resultado de la consulta de inventario</caption>
+            <thead><tr><th scope="col">Código</th><th scope="col" aria-sort="ascending">Planta <i class="bi bi-caret-up-fill" aria-hidden="true"></i></th><th scope="col">Tipo</th><th scope="col" class="text-end">Existencia</th><th scope="col" class="text-end">Precio unidad</th><th scope="col">Estado</th></tr></thead>
+            <tbody>
+                <tr><td>FM-0003</td><td class="fw-bold">Orquídea Phalaenopsis</td><td>Ornamental</td><td class="text-end">4</td><td class="text-end">$ 45.000</td><td><span class="estado estado-bajo"><i class="bi bi-caret-down-fill" aria-hidden="true"></i>Bajo</span></td></tr>
+                <tr><td>FM-0012</td><td class="fw-bold">Ficus benjamina</td><td>Ornamental</td><td class="text-end">83</td><td class="text-end">$ 22.000</td><td><span class="estado estado-ok"><i class="bi bi-check-lg" aria-hidden="true"></i>Disponible</span></td></tr>
+                <tr><td>FM-0021</td><td class="fw-bold">Helecho espada</td><td>Ornamental</td><td class="text-end">140</td><td class="text-end">$ 9.500</td><td><span class="estado estado-ok"><i class="bi bi-check-lg" aria-hidden="true"></i>Disponible</span></td></tr>
+                <tr><td>FM-0029</td><td class="fw-bold">Limonero injertado</td><td>Frutal</td><td class="text-end">0</td><td class="text-end">$ 35.000</td><td><span class="estado estado-agotado"><i class="bi bi-x-lg" aria-hidden="true"></i>Agotado</span></td></tr>
+                <tr><td>FM-0033</td><td class="fw-bold">Suculenta echeveria</td><td>Suculenta</td><td class="text-end">312</td><td class="text-end">$ 6.000</td><td><span class="estado estado-ok"><i class="bi bi-check-lg" aria-hidden="true"></i>Disponible</span></td></tr>
+                <tr><td>FM-0040</td><td class="fw-bold">Palma areca</td><td>Ornamental</td><td class="text-end">6</td><td class="text-end">$ 38.000</td><td><span class="estado estado-bajo"><i class="bi bi-caret-down-fill" aria-hidden="true"></i>Bajo</span></td></tr>
+                <tr><td>FM-0047</td><td class="fw-bold">Guayacán amarillo</td><td>Forestal</td><td class="text-end">120</td><td class="text-end">$ 18.500</td><td><span class="estado estado-ok"><i class="bi bi-check-lg" aria-hidden="true"></i>Disponible</span></td></tr>
+            </tbody>
+          </table></div>
+          <ul class="list-group list-group-flush d-md-none" aria-label="Resultado de la consulta">
+            <li class="list-group-item d-flex justify-content-between align-items-start py-3"><div><strong>Orquídea Phalaenopsis</strong><br><span class="text-apoyo small">FM-0003 · $ 45.000</span></div><div class="text-end"><strong>4</strong><br><span class="estado estado-bajo"><i class="bi bi-caret-down-fill" aria-hidden="true"></i>Bajo</span></div></li>
+            <li class="list-group-item d-flex justify-content-between align-items-start py-3"><div><strong>Ficus benjamina</strong><br><span class="text-apoyo small">FM-0012 · $ 22.000</span></div><div class="text-end"><strong>83</strong><br><span class="estado estado-ok"><i class="bi bi-check-lg" aria-hidden="true"></i>Disponible</span></div></li>
+            <li class="list-group-item d-flex justify-content-between align-items-start py-3"><div><strong>Helecho espada</strong><br><span class="text-apoyo small">FM-0021 · $ 9.500</span></div><div class="text-end"><strong>140</strong><br><span class="estado estado-ok"><i class="bi bi-check-lg" aria-hidden="true"></i>Disponible</span></div></li>
+            <li class="list-group-item d-flex justify-content-between align-items-start py-3"><div><strong>Limonero injertado</strong><br><span class="text-apoyo small">FM-0029 · $ 35.000</span></div><div class="text-end"><strong>0</strong><br><span class="estado estado-agotado"><i class="bi bi-x-lg" aria-hidden="true"></i>Agotado</span></div></li>
+            <li class="list-group-item d-flex justify-content-between align-items-start py-3"><div><strong>Suculenta echeveria</strong><br><span class="text-apoyo small">FM-0033 · $ 6.000</span></div><div class="text-end"><strong>312</strong><br><span class="estado estado-ok"><i class="bi bi-check-lg" aria-hidden="true"></i>Disponible</span></div></li>
+            <li class="list-group-item d-flex justify-content-between align-items-start py-3"><div><strong>Palma areca</strong><br><span class="text-apoyo small">FM-0040 · $ 38.000</span></div><div class="text-end"><strong>6</strong><br><span class="estado estado-bajo"><i class="bi bi-caret-down-fill" aria-hidden="true"></i>Bajo</span></div></li>
+            <li class="list-group-item d-flex justify-content-between align-items-start py-3"><div><strong>Guayacán amarillo</strong><br><span class="text-apoyo small">FM-0047 · $ 18.500</span></div><div class="text-end"><strong>120</strong><br><span class="estado estado-ok"><i class="bi bi-check-lg" aria-hidden="true"></i>Disponible</span></div></li>
+          </ul>
+          <div class="d-flex justify-content-end gap-3 mt-3"><a class="btn btn-fm-borde" href="consultar-inventario.html">Nueva consulta</a><a class="btn-link-fm" href="inicio-vendedor.html">Cerrar</a></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="tituloAyuda" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title h5" id="tituloAyuda">Ayuda</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+      <div class="modal-body"><p>Usa el menú lateral para ir a cada módulo. La opción resaltada indica dónde estás. Si tienes problemas para ingresar, comunícate con el administrador del sistema.</p></div>
+    </div></div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>

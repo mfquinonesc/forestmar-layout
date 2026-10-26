@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Actualizar inventario | Forestmar</title>
+  <meta name="description" content="Registro de entradas y salidas de plantas (RF02).">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="fm-barra-movil d-lg-none">
+    <a class="fm-marca" href="inicio.html"><img src="img/logo-forestmar.svg" alt="" width="40" height="40"><span><strong>Forestmar</strong></span></a>
+    <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral"><i class="bi bi-list" aria-hidden="true"></i> Menú</button>
+  </header>
+  <div class="fm-app">
+    <aside class="fm-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="menuLateral" aria-label="Menú lateral">
+      <div class="offcanvas-header d-lg-none justify-content-end">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#menuLateral" aria-label="Cerrar menú"></button>
+      </div>
+      <nav class="offcanvas-body" aria-label="Menú principal">
+        <a class="fm-marca d-none d-lg-flex" href="inicio.html">
+          <img src="img/logo-forestmar.svg" alt="">
+          <span><strong>Forestmar</strong><span>Vivero · Gestión</span></span>
+        </a>
+        <p class="seccion" id="sec-inventario">Inventario</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-inventario">
+          <li class="nav-item"><a class="nav-link" href="inicio.html"><i class="bi bi-house" aria-hidden="true"></i>Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="registrar-planta.html"><i class="bi bi-plus-lg" aria-hidden="true"></i>Registrar planta</a></li>
+          <li class="nav-item"><a class="nav-link" href="actualizar-inventario.html" aria-current="page"><i class="bi bi-arrow-repeat" aria-hidden="true"></i>Actualizar inventario</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultar-inventario.html"><i class="bi bi-search" aria-hidden="true"></i>Consultar inventario</a></li>
+        </ul>
+        <p class="seccion" id="sec-finanzas">Finanzas</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-finanzas">
+          <li class="nav-item"><a class="nav-link" href="registrar-gasto.html"><i class="bi bi-currency-dollar" aria-hidden="true"></i>Registrar gasto</a></li>
+          <li class="nav-item"><a class="nav-link" href="reporte-ventas.html"><i class="bi bi-table" aria-hidden="true"></i>Reportes de ventas</a></li>
+          <li class="nav-item"><a class="nav-link" href="ganancias.html"><i class="bi bi-pie-chart" aria-hidden="true"></i>Cálculo de ganancias</a></li>
+        </ul>
+        <a class="nav-link salir" href="index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="fm-principal">
+      <header class="fm-encabezado">
+        <nav aria-label="Migas de pan"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="inicio.html">Inventario</a></li><li class="breadcrumb-item active" aria-current="page">Actualizar inventario</li></ol></nav>
+        <div class="fm-usuario">
+          <a class="ayuda d-none d-md-inline-flex" href="#ayuda" data-bs-toggle="modal" data-bs-target="#modalAyuda"><i class="bi bi-question-circle" aria-hidden="true"></i>Ayuda</a>
+          <span class="avatar" aria-hidden="true">LR</span>
+          <span class="nombre d-none d-sm-block"><strong>Laura Rincón</strong><span>Rol: Gerente</span></span>
+        </div>
+      </header>
+      <main id="contenido" class="fm-contenido">
+        <h1 class="mb-1">Actualizar inventario</h1>
+        <p class="text-apoyo mb-4">Selecciona una planta y registra la entrada (siembra/compra) o salida (ajuste/pérdida).</p>
+        <div class="row g-3">
+          <section class="col-12 col-lg-6" aria-labelledby="tBuscar">
+            <div class="fm-tarjeta h-100">
+              <label id="tBuscar" for="buscarPlanta" class="form-label">Buscar planta</label>
+              <input id="buscarPlanta" type="search" class="form-control mb-3" placeholder="Nombre o código…">
+              <div class="table-responsive"><table class="table">
+                <caption class="visually-hidden">Plantas registradas</caption>
+                <thead><tr><th scope="col">Código</th><th scope="col">Planta</th><th scope="col" class="text-end">Existencia</th></tr></thead>
+                <tbody>
+                  <tr class="fila-sel"><td>FM-0012</td><td>Ficus benjamina <i class="bi bi-check-lg" aria-hidden="true"></i><span class="visually-hidden"> (seleccionada)</span></td><td class="text-end">58</td></tr>
+                  <tr><td>FM-0021</td><td>Helecho espada</td><td class="text-end">140</td></tr>
+                  <tr><td>FM-0033</td><td>Suculenta echeveria</td><td class="text-end">312</td></tr>
+                  <tr><td>FM-0047</td><td>Guayacán amarillo</td><td class="text-end">120</td></tr>
+                </tbody>
+              </table></div>
+            </div>
+          </section>
+          <section class="col-12 col-lg-6" aria-labelledby="tPlanta">
+            <form class="fm-tarjeta h-100" id="formMov" novalidate>
+              <h2 id="tPlanta" class="mb-1">Ficus benjamina · FM-0012</h2>
+              <p class="text-apoyo">Existencia actual: <strong class="text-body" id="existencia" data-valor="58">58 unidades</strong></p>
+              <fieldset class="mb-3">
+                <legend class="form-label fs-6">Tipo de movimiento</legend>
+                <div class="fm-seg d-flex gap-2 flex-wrap">
+                  <input type="radio" class="btn-check" name="mov" id="movEntrada" value="1" checked><label class="btn" for="movEntrada">Entrada (+)</label>
+                  <input type="radio" class="btn-check" name="mov" id="movSalida" value="-1"><label class="btn" for="movSalida">Salida (−)</label>
+                </div>
+              </fieldset>
+              <div class="row g-3">
+                <div class="col-12 col-sm-6"><label for="cantMov" class="form-label">Cantidad <span class="oblig">(obligatorio)</span></label><input id="cantMov" type="number" min="1" class="form-control" value="25" required></div>
+                <div class="col-12 col-sm-6"><label for="motivo" class="form-label">Motivo</label><select id="motivo" class="form-select"><option>Nueva siembra</option><option>Compra a proveedor</option><option>Ajuste de conteo</option><option>Pérdida</option></select></div>
+              </div>
+              <p class="aviso aviso-info mt-3" id="vistaPrevia" aria-live="polite">Nueva existencia: 58 + 25 = 83 unidades</p>
+              <div class="d-flex flex-wrap gap-3 align-items-center">
+                <button type="submit" class="btn btn-fm">Guardar cambios</button>
+                <a class="btn-link-fm" href="inicio.html">Cancelar</a>
+              </div>
+            </form>
+          </section>
+        </div>
+        <p class="aviso aviso-exito mt-3" role="status"><i class="bi bi-check-lg" aria-hidden="true"></i> Inventario actualizado: Helecho espada ahora tiene 140 unidades. <a href="#" class="text-reset">Deshacer</a></p>
+      </main>
+    </div>
+  </div>
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="tituloAyuda" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title h5" id="tituloAyuda">Ayuda</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+      <div class="modal-body"><p>Usa el menú lateral para ir a cada módulo. La opción resaltada indica dónde estás. Si tienes problemas para ingresar, comunícate con el administrador del sistema.</p></div>
+    </div></div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>

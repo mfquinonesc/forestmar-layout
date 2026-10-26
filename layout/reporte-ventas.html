@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reporte de ventas | Forestmar</title>
+  <meta name="description" content="Reportes de ventas por día, mes o año (RF08).">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="fm-barra-movil d-lg-none">
+    <a class="fm-marca" href="inicio.html"><img src="img/logo-forestmar.svg" alt="" width="40" height="40"><span><strong>Forestmar</strong></span></a>
+    <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral"><i class="bi bi-list" aria-hidden="true"></i> Menú</button>
+  </header>
+  <div class="fm-app">
+    <aside class="fm-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="menuLateral" aria-label="Menú lateral">
+      <div class="offcanvas-header d-lg-none justify-content-end">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#menuLateral" aria-label="Cerrar menú"></button>
+      </div>
+      <nav class="offcanvas-body" aria-label="Menú principal">
+        <a class="fm-marca d-none d-lg-flex" href="inicio.html">
+          <img src="img/logo-forestmar.svg" alt="">
+          <span><strong>Forestmar</strong><span>Vivero · Gestión</span></span>
+        </a>
+        <p class="seccion" id="sec-inventario">Inventario</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-inventario">
+          <li class="nav-item"><a class="nav-link" href="inicio.html"><i class="bi bi-house" aria-hidden="true"></i>Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="registrar-planta.html"><i class="bi bi-plus-lg" aria-hidden="true"></i>Registrar planta</a></li>
+          <li class="nav-item"><a class="nav-link" href="actualizar-inventario.html"><i class="bi bi-arrow-repeat" aria-hidden="true"></i>Actualizar inventario</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultar-inventario.html"><i class="bi bi-search" aria-hidden="true"></i>Consultar inventario</a></li>
+        </ul>
+        <p class="seccion" id="sec-finanzas">Finanzas</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-finanzas">
+          <li class="nav-item"><a class="nav-link" href="registrar-gasto.html"><i class="bi bi-currency-dollar" aria-hidden="true"></i>Registrar gasto</a></li>
+          <li class="nav-item"><a class="nav-link" href="reporte-ventas.html" aria-current="page"><i class="bi bi-table" aria-hidden="true"></i>Reportes de ventas</a></li>
+          <li class="nav-item"><a class="nav-link" href="ganancias.html"><i class="bi bi-pie-chart" aria-hidden="true"></i>Cálculo de ganancias</a></li>
+        </ul>
+        <a class="nav-link salir" href="index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="fm-principal">
+      <header class="fm-encabezado">
+        <nav aria-label="Migas de pan"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="inicio.html">Finanzas</a></li><li class="breadcrumb-item active" aria-current="page">Reportes de ventas</li></ol></nav>
+        <div class="fm-usuario">
+          <a class="ayuda d-none d-md-inline-flex" href="#ayuda" data-bs-toggle="modal" data-bs-target="#modalAyuda"><i class="bi bi-question-circle" aria-hidden="true"></i>Ayuda</a>
+          <span class="avatar" aria-hidden="true">LR</span>
+          <span class="nombre d-none d-sm-block"><strong>Laura Rincón</strong><span>Rol: Gerente</span></span>
+        </div>
+      </header>
+      <main id="contenido" class="fm-contenido">
+        <h1 class="mb-1">Reporte de ventas</h1>
+        <p class="text-apoyo mb-4">Elige el periodo y genera el reporte.</p>
+        <form class="fm-tarjeta mb-3" novalidate>
+          <div class="row g-3 align-items-end">
+            <fieldset class="col-12 col-xxl-4"><legend class="form-label fs-6">Tipo de reporte</legend>
+              <div class="fm-seg d-flex gap-2 flex-wrap">
+                <input type="radio" class="btn-check" name="periodo" id="pDiario"><label class="btn" for="pDiario">Diario</label>
+                <input type="radio" class="btn-check" name="periodo" id="pMensual" checked><label class="btn" for="pMensual">Mensual</label>
+                <input type="radio" class="btn-check" name="periodo" id="pAnual"><label class="btn" for="pAnual">Anual</label>
+              </div>
+            </fieldset>
+            <div class="col-12 col-md-4 col-xl-3"><label for="desde" class="form-label">Desde</label><input id="desde" type="date" class="form-control" value="2026-10-01"></div>
+            <div class="col-12 col-md-4 col-xl-3"><label for="hasta" class="form-label">Hasta</label><input id="hasta" type="date" class="form-control" value="2026-10-17"></div>
+            <div class="col-12 col-md-4 col-xl-2"><button type="submit" class="btn btn-fm w-100">Generar reporte</button></div>
+          </div>
+        </form>
+        <section class="row g-3 mb-3" aria-label="Totales del periodo">
+          <div class="col-12 col-md-4"><div class="fm-tarjeta kpi h-100"><p class="etiqueta mb-0">Total vendido</p><p class="valor">$ 10.070.500</p></div></div>
+          <div class="col-12 col-md-4"><div class="fm-tarjeta kpi h-100"><p class="etiqueta mb-0">Facturas</p><p class="valor">214</p></div></div>
+          <div class="col-12 col-md-4"><div class="fm-tarjeta kpi h-100"><p class="etiqueta mb-0">Planta más vendida</p><p class="valor fs-4">Suculenta echeveria</p><p class="small text-apoyo mb-0">402 unidades</p></div></div>
+        </section>
+        <section class="fm-tarjeta" aria-labelledby="tDetalle">
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+            <h2 id="tDetalle" class="mb-0">Detalle por planta</h2>
+            <div class="d-flex gap-2"><button type="button" class="btn btn-fm-borde"><i class="bi bi-download" aria-hidden="true"></i>PDF</button><button type="button" class="btn btn-fm-borde"><i class="bi bi-download" aria-hidden="true"></i>Excel</button></div>
+          </div>
+          <div class="table-responsive"><table class="table">
+            <caption class="visually-hidden">Ventas por planta en el periodo</caption>
+            <thead><tr><th scope="col">Planta</th><th scope="col" class="text-end">Unidades</th><th scope="col" class="text-end">Facturas</th><th scope="col" class="text-end">Total</th></tr></thead>
+            <tbody>
+                <tr><td>Suculenta echeveria</td><td class="text-end">402</td><td class="text-end">96</td><td class="text-end">$ 2.412.000</td></tr>
+                <tr><td>Ficus benjamina</td><td class="text-end">88</td><td class="text-end">61</td><td class="text-end">$ 1.936.000</td></tr>
+                <tr><td>Guayacán amarillo</td><td class="text-end">74</td><td class="text-end">18</td><td class="text-end">$ 1.369.000</td></tr>
+                <tr><td>Helecho espada</td><td class="text-end">131</td><td class="text-end">52</td><td class="text-end">$ 1.244.500</td></tr>
+            </tbody>
+          </table></div>
+          <p class="small text-apoyo mt-3 mb-0"><i class="bi bi-info-circle" aria-hidden="true"></i> Gráficas: funcionalidad opcional, fuera del alcance acordado (propuesta v2.0).</p>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="tituloAyuda" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title h5" id="tituloAyuda">Ayuda</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+      <div class="modal-body"><p>Usa el menú lateral para ir a cada módulo. La opción resaltada indica dónde estás. Si tienes problemas para ingresar, comunícate con el administrador del sistema.</p></div>
+    </div></div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>

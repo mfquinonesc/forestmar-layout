@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Usuarios y roles | Forestmar</title>
+  <meta name="description" content="Administración de usuarios y roles del sistema (RNF02).">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="fm-barra-movil d-lg-none">
+    <a class="fm-marca" href="usuarios.html"><img src="img/logo-forestmar.svg" alt="" width="40" height="40"><span><strong>Forestmar</strong></span></a>
+    <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral"><i class="bi bi-list" aria-hidden="true"></i> Menú</button>
+  </header>
+  <div class="fm-app">
+    <aside class="fm-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="menuLateral" aria-label="Menú lateral">
+      <div class="offcanvas-header d-lg-none justify-content-end">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#menuLateral" aria-label="Cerrar menú"></button>
+      </div>
+      <nav class="offcanvas-body" aria-label="Menú principal">
+        <a class="fm-marca d-none d-lg-flex" href="usuarios.html">
+          <img src="img/logo-forestmar.svg" alt="">
+          <span><strong>Forestmar</strong><span>Vivero · Gestión</span></span>
+        </a>
+        <p class="seccion" id="sec-sistema">Sistema</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-sistema">
+          <li class="nav-item"><a class="nav-link" href="usuarios.html"><i class="bi bi-house" aria-hidden="true"></i>Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="usuarios.html#tabla" aria-current="page"><i class="bi bi-people" aria-hidden="true"></i>Usuarios y roles</a></li>
+        </ul>
+        <p class="seccion" id="sec-inventario">Inventario</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-inventario">
+          <li class="nav-item"><a class="nav-link" href="consultar-inventario.html"><i class="bi bi-search" aria-hidden="true"></i>Consultar inventario</a></li>
+        </ul>
+        <p class="seccion" id="sec-finanzas">Finanzas</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-finanzas">
+          <li class="nav-item"><a class="nav-link" href="reporte-ventas.html"><i class="bi bi-table" aria-hidden="true"></i>Reportes de ventas</a></li>
+        </ul>
+        <a class="nav-link salir" href="index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="fm-principal">
+      <header class="fm-encabezado">
+        <nav aria-label="Migas de pan"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="usuarios.html">Sistema</a></li><li class="breadcrumb-item active" aria-current="page">Usuarios y roles</li></ol></nav>
+        <div class="fm-usuario">
+          <a class="ayuda d-none d-md-inline-flex" href="#ayuda" data-bs-toggle="modal" data-bs-target="#modalAyuda"><i class="bi bi-question-circle" aria-hidden="true"></i>Ayuda</a>
+          <span class="avatar" aria-hidden="true">AD</span>
+          <span class="nombre d-none d-sm-block"><strong>Admin. sistema</strong><span>Rol: Administrador</span></span>
+        </div>
+      </header>
+      <main id="contenido" class="fm-contenido">
+        <h1 class="mb-1">Usuarios y roles</h1>
+        <p class="text-apoyo mb-4">Solo el administrador crea usuarios y asigna roles.</p>
+        <section class="fm-tarjeta mb-3" id="tabla" aria-label="Usuarios del sistema">
+          <div class="d-flex justify-content-between flex-wrap gap-3 mb-3">
+            <div style="max-width:420px" class="flex-fill"><label for="buscarUsuario" class="visually-hidden">Buscar usuario</label><input id="buscarUsuario" type="search" class="form-control" placeholder="Buscar usuario…"></div>
+            <button type="button" class="btn btn-fm"><i class="bi bi-plus-lg" aria-hidden="true"></i>Nuevo usuario</button>
+          </div>
+          <div class="table-responsive"><table class="table">
+            <caption class="visually-hidden">Usuarios, roles y estado de las cuentas</caption>
+            <thead><tr><th scope="col">Nombre</th><th scope="col">Usuario</th><th scope="col">Rol</th><th scope="col">Estado</th><th scope="col">Acciones</th></tr></thead>
+            <tbody>
+                <tr><td>Laura Rincón</td><td>laura.rincon</td><td>Gerente</td><td><span class="estado estado-ok"><i class="bi bi-check-lg" aria-hidden="true"></i>Activo</span></td><td><a href="#">Editar<span class="visually-hidden"> a Laura Rincón</span></a> · <a href="#">Restablecer clave<span class="visually-hidden"> de Laura Rincón</span></a></td></tr>
+                <tr><td>Sofía Vargas</td><td>sofia.vargas</td><td>Asistente</td><td><span class="estado estado-ok"><i class="bi bi-check-lg" aria-hidden="true"></i>Activo</span></td><td><a href="#">Editar<span class="visually-hidden"> a Sofía Vargas</span></a> · <a href="#">Restablecer clave<span class="visually-hidden"> de Sofía Vargas</span></a></td></tr>
+                <tr><td>Camilo Pardo</td><td>camilo.pardo</td><td>Vendedor</td><td><span class="estado estado-ok"><i class="bi bi-check-lg" aria-hidden="true"></i>Activo</span></td><td><a href="#">Editar<span class="visually-hidden"> a Camilo Pardo</span></a> · <a href="#">Restablecer clave<span class="visually-hidden"> de Camilo Pardo</span></a></td></tr>
+                <tr><td>Julián Herrera</td><td>julian.herrera</td><td>Vendedor</td><td><span class="estado estado-agotado"><i class="bi bi-x-lg" aria-hidden="true"></i>Bloqueado (5 intentos)</span></td><td><a href="#">Desbloquear<span class="visually-hidden"> a Julián Herrera</span></a></td></tr>
+            </tbody>
+          </table></div>
+        </section>
+        <p class="aviso aviso-info">Permisos: Gerente (todo el inventario y finanzas) · Asistente (plantas, inventario y gastos) · Vendedor (consulta, ventas y facturas).</p>
+      </main>
+    </div>
+  </div>
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="tituloAyuda" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title h5" id="tituloAyuda">Ayuda</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+      <div class="modal-body"><p>Usa el menú lateral para ir a cada módulo. La opción resaltada indica dónde estás. Si tienes problemas para ingresar, comunícate con el administrador del sistema.</p></div>
+    </div></div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>

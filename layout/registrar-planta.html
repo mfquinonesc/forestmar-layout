@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registrar planta | Forestmar</title>
+  <meta name="description" content="Registro de especies de plantas del vivero Forestmar (RF01).">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="fm-barra-movil d-lg-none">
+    <a class="fm-marca" href="inicio.html"><img src="img/logo-forestmar.svg" alt="" width="40" height="40"><span><strong>Forestmar</strong></span></a>
+    <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral"><i class="bi bi-list" aria-hidden="true"></i> Menú</button>
+  </header>
+  <div class="fm-app">
+    <aside class="fm-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="menuLateral" aria-label="Menú lateral">
+      <div class="offcanvas-header d-lg-none justify-content-end">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#menuLateral" aria-label="Cerrar menú"></button>
+      </div>
+      <nav class="offcanvas-body" aria-label="Menú principal">
+        <a class="fm-marca d-none d-lg-flex" href="inicio.html">
+          <img src="img/logo-forestmar.svg" alt="">
+          <span><strong>Forestmar</strong><span>Vivero · Gestión</span></span>
+        </a>
+        <p class="seccion" id="sec-inventario">Inventario</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-inventario">
+          <li class="nav-item"><a class="nav-link" href="inicio.html"><i class="bi bi-house" aria-hidden="true"></i>Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="registrar-planta.html" aria-current="page"><i class="bi bi-plus-lg" aria-hidden="true"></i>Registrar planta</a></li>
+          <li class="nav-item"><a class="nav-link" href="actualizar-inventario.html"><i class="bi bi-arrow-repeat" aria-hidden="true"></i>Actualizar inventario</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultar-inventario.html"><i class="bi bi-search" aria-hidden="true"></i>Consultar inventario</a></li>
+        </ul>
+        <p class="seccion" id="sec-finanzas">Finanzas</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-finanzas">
+          <li class="nav-item"><a class="nav-link" href="registrar-gasto.html"><i class="bi bi-currency-dollar" aria-hidden="true"></i>Registrar gasto</a></li>
+          <li class="nav-item"><a class="nav-link" href="reporte-ventas.html"><i class="bi bi-table" aria-hidden="true"></i>Reportes de ventas</a></li>
+          <li class="nav-item"><a class="nav-link" href="ganancias.html"><i class="bi bi-pie-chart" aria-hidden="true"></i>Cálculo de ganancias</a></li>
+        </ul>
+        <a class="nav-link salir" href="index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="fm-principal">
+      <header class="fm-encabezado">
+        <nav aria-label="Migas de pan"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="inicio.html">Inventario</a></li><li class="breadcrumb-item active" aria-current="page">Registrar planta</li></ol></nav>
+        <div class="fm-usuario">
+          <a class="ayuda d-none d-md-inline-flex" href="#ayuda" data-bs-toggle="modal" data-bs-target="#modalAyuda"><i class="bi bi-question-circle" aria-hidden="true"></i>Ayuda</a>
+          <span class="avatar" aria-hidden="true">LR</span>
+          <span class="nombre d-none d-sm-block"><strong>Laura Rincón</strong><span>Rol: Gerente</span></span>
+        </div>
+      </header>
+      <main id="contenido" class="fm-contenido">
+        <h1 class="mb-1">Registrar planta</h1>
+        <p class="text-apoyo mb-4">Los campos marcados como (obligatorio) deben diligenciarse.</p>
+        <form class="fm-tarjeta" id="formPlanta" novalidate>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label for="nomComun" class="form-label">Nombre común <span class="oblig">(obligatorio)</span></label>
+              <input id="nomComun" class="form-control" value="Guayacán amarillo" required>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="nomCient" class="form-label">Nombre científico</label>
+              <input id="nomCient" class="form-control" value="Handroanthus chrysanthus">
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="tipo" class="form-label">Tipo de planta <span class="oblig">(obligatorio)</span></label>
+              <select id="tipo" class="form-select" required aria-describedby="ayudaTipo">
+                <option>Árbol ornamental</option><option>Ornamental</option><option>Frutal</option><option>Forestal</option><option>Medicinal</option><option>Suculenta</option>
+              </select>
+              <p id="ayudaTipo" class="small text-apoyo mt-1 mb-0">Lista: ornamental, frutal, forestal, medicinal, suculenta.</p>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="codigo" class="form-label">Código / referencia</label>
+              <input id="codigo" class="form-control" value="FM-0047 (se genera automáticamente)" readonly>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="cantidad" class="form-label">Cantidad inicial <span class="oblig">(obligatorio)</span></label>
+              <input id="cantidad" type="number" min="0" step="1" inputmode="numeric" class="form-control" value="120" required aria-describedby="ayudaCant">
+              <p id="ayudaCant" class="small text-apoyo mt-1 mb-0">Solo números enteros mayores o iguales a 0.</p>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="precio" class="form-label">Precio de venta por unidad (COP) <span class="oblig">(obligatorio)</span></label>
+              <input id="precio" inputmode="numeric" class="form-control is-invalid" value="$ 18.5OO" required aria-describedby="errorPrecio" aria-invalid="true">
+              <p id="errorPrecio" class="mensaje-error"><i class="bi bi-exclamation-triangle" aria-hidden="true"></i>Escribe solo números. Ejemplo: 18500</p>
+            </div>
+            <div class="col-12">
+              <label for="obs" class="form-label">Observaciones</label>
+              <textarea id="obs" class="form-control" rows="3" placeholder="Tamaño de bolsa, cuidados, ubicación en el vivero…"></textarea>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap gap-3 align-items-center mt-4">
+            <button type="submit" class="btn btn-fm">Guardar planta</button>
+            <button type="reset" class="btn btn-fm-borde">Limpiar</button>
+            <a class="btn-link-fm" href="inicio.html">Cancelar y volver al inicio</a>
+          </div>
+          <div class="aviso aviso-exito mt-3 d-none" id="okPlanta" role="status"><i class="bi bi-check-lg" aria-hidden="true"></i> Planta guardada correctamente. Puedes registrar otra.</div>
+        </form>
+      </main>
+    </div>
+  </div>
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="tituloAyuda" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title h5" id="tituloAyuda">Ayuda</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+      <div class="modal-body"><p>Usa el menú lateral para ir a cada módulo. La opción resaltada indica dónde estás. Si tienes problemas para ingresar, comunícate con el administrador del sistema.</p></div>
+    </div></div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>

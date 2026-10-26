@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registrar gasto | Forestmar</title>
+  <meta name="description" content="Registro de gastos operativos del vivero (RF07).">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="fm-barra-movil d-lg-none">
+    <a class="fm-marca" href="inicio.html"><img src="img/logo-forestmar.svg" alt="" width="40" height="40"><span><strong>Forestmar</strong></span></a>
+    <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral"><i class="bi bi-list" aria-hidden="true"></i> Menú</button>
+  </header>
+  <div class="fm-app">
+    <aside class="fm-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="menuLateral" aria-label="Menú lateral">
+      <div class="offcanvas-header d-lg-none justify-content-end">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#menuLateral" aria-label="Cerrar menú"></button>
+      </div>
+      <nav class="offcanvas-body" aria-label="Menú principal">
+        <a class="fm-marca d-none d-lg-flex" href="inicio.html">
+          <img src="img/logo-forestmar.svg" alt="">
+          <span><strong>Forestmar</strong><span>Vivero · Gestión</span></span>
+        </a>
+        <p class="seccion" id="sec-inventario">Inventario</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-inventario">
+          <li class="nav-item"><a class="nav-link" href="inicio.html"><i class="bi bi-house" aria-hidden="true"></i>Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="registrar-planta.html"><i class="bi bi-plus-lg" aria-hidden="true"></i>Registrar planta</a></li>
+          <li class="nav-item"><a class="nav-link" href="actualizar-inventario.html"><i class="bi bi-arrow-repeat" aria-hidden="true"></i>Actualizar inventario</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultar-inventario.html"><i class="bi bi-search" aria-hidden="true"></i>Consultar inventario</a></li>
+        </ul>
+        <p class="seccion" id="sec-finanzas">Finanzas</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-finanzas">
+          <li class="nav-item"><a class="nav-link" href="registrar-gasto.html" aria-current="page"><i class="bi bi-currency-dollar" aria-hidden="true"></i>Registrar gasto</a></li>
+          <li class="nav-item"><a class="nav-link" href="reporte-ventas.html"><i class="bi bi-table" aria-hidden="true"></i>Reportes de ventas</a></li>
+          <li class="nav-item"><a class="nav-link" href="ganancias.html"><i class="bi bi-pie-chart" aria-hidden="true"></i>Cálculo de ganancias</a></li>
+        </ul>
+        <a class="nav-link salir" href="index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="fm-principal">
+      <header class="fm-encabezado">
+        <nav aria-label="Migas de pan"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="inicio.html">Finanzas</a></li><li class="breadcrumb-item active" aria-current="page">Registrar gasto</li></ol></nav>
+        <div class="fm-usuario">
+          <a class="ayuda d-none d-md-inline-flex" href="#ayuda" data-bs-toggle="modal" data-bs-target="#modalAyuda"><i class="bi bi-question-circle" aria-hidden="true"></i>Ayuda</a>
+          <span class="avatar" aria-hidden="true">LR</span>
+          <span class="nombre d-none d-sm-block"><strong>Laura Rincón</strong><span>Rol: Gerente</span></span>
+        </div>
+      </header>
+      <main id="contenido" class="fm-contenido">
+        <h1 class="mb-1">Registrar gasto</h1>
+        <p class="text-apoyo mb-4">Registra compras de insumos, transporte, nómina y otros egresos del vivero.</p>
+        <div class="row g-3">
+          <section class="col-12 col-xl-7" aria-label="Formulario de gasto">
+            <form class="fm-tarjeta h-100" novalidate>
+              <div class="row g-3">
+                <div class="col-12 col-md-6"><label for="tipoGasto" class="form-label">Tipo de gasto <span class="oblig">(obligatorio)</span></label><select id="tipoGasto" class="form-select" required aria-describedby="ayudaGasto"><option>Compra de insumos</option><option>Transporte</option><option>Pago de empleados</option><option>Servicios</option><option>Otros</option></select><p id="ayudaGasto" class="small text-apoyo mt-1 mb-0">Insumos · Transporte · Pago de empleados · Servicios · Otros</p></div>
+                <div class="col-12 col-md-6"><label for="fechaGasto" class="form-label">Fecha <span class="oblig">(obligatorio)</span></label><input id="fechaGasto" type="date" class="form-control" value="2026-10-17" required></div>
+                <div class="col-12 col-md-6"><label for="valorGasto" class="form-label">Valor (COP) <span class="oblig">(obligatorio)</span></label><input id="valorGasto" inputmode="numeric" class="form-control" value="420000" required aria-describedby="ayudaValor"><p id="ayudaValor" class="small text-apoyo mt-1 mb-0">Solo números, sin puntos.</p></div>
+                <div class="col-12 col-md-6"><label for="proveedor" class="form-label">Proveedor / beneficiario</label><input id="proveedor" class="form-control" value="Agroinsumos La Sabana"></div>
+                <div class="col-12"><label for="descGasto" class="form-label">Descripción <span class="oblig">(obligatorio)</span></label><textarea id="descGasto" class="form-control" rows="3" required>20 bultos de tierra abonada y 2 cajas de fertilizante NPK</textarea></div>
+              </div>
+              <div class="d-flex flex-wrap gap-3 align-items-center mt-4"><button type="submit" class="btn btn-fm">Guardar gasto</button><button type="reset" class="btn btn-fm-borde">Limpiar</button><a class="btn-link-fm" href="inicio.html">Cancelar</a></div>
+              <p class="aviso aviso-exito mt-3 mb-0" role="status"><i class="bi bi-check-lg" aria-hidden="true"></i> Gasto registrado exitosamente.</p>
+            </form>
+          </section>
+          <section class="col-12 col-xl-5" aria-labelledby="tUltimos">
+            <div class="fm-tarjeta">
+              <h2 id="tUltimos" class="mb-3">Últimos gastos registrados</h2>
+              <div class="table-responsive"><table class="table">
+                <thead><tr><th scope="col">Fecha</th><th scope="col">Tipo</th><th scope="col" class="text-end">Valor</th></tr></thead>
+                <tbody>
+                <tr><td>17/10</td><td>Insumos</td><td class="text-end">$ 420.000</td></tr>
+                <tr><td>15/10</td><td>Transporte</td><td class="text-end">$ 180.000</td></tr>
+                <tr><td>01/10</td><td>Pago de empleados</td><td class="text-end">$ 2.400.000</td></tr>
+                <tr><td>01/10</td><td>Servicios</td><td class="text-end">$ 150.000</td></tr>
+                </tbody>
+                <tfoot><tr><td colspan="2">Total octubre</td><td class="text-end">$ 3.150.000</td></tr></tfoot>
+              </table></div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="tituloAyuda" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title h5" id="tituloAyuda">Ayuda</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+      <div class="modal-body"><p>Usa el menú lateral para ir a cada módulo. La opción resaltada indica dónde estás. Si tienes problemas para ingresar, comunícate con el administrador del sistema.</p></div>
+    </div></div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>

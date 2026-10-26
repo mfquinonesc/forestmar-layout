@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar sesión | Forestmar</title>
+  <meta name="description" content="Ingreso al sistema de gestión de inventario del vivero Forestmar.">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al formulario</a>
+  <div class="fm-acceso">
+    <header class="lado-marca">
+      <div class="fm-marca"><img src="img/logo-forestmar.svg" alt=""><span><strong>Forestmar</strong><span>Vivero · Sistema de gestión de inventario</span></span></div>
+      <p class="mt-4">Controla tus plantas, ventas, gastos y ganancias en un solo lugar.</p>
+      <ul>
+        <li>✓ Inventario actualizado al instante</li>
+        <li>✓ Facturas digitales</li>
+        <li>✓ Reportes y cálculo de ganancias</li>
+      </ul>
+    </header>
+    <main id="contenido" class="lado-form">
+      <form id="formLogin" action="inicio.html" novalidate>
+        <h1 class="mb-1" style="font-size:2rem">Iniciar sesión</h1>
+        <p class="text-apoyo mb-4">Ingresa con el usuario asignado por el administrador.</p>
+        <div class="mb-3">
+          <label for="usuario" class="form-label">Usuario o correo</label>
+          <input id="usuario" name="usuario" type="email" class="form-control" autocomplete="username" value="laura.rincon@forestmar.co" required>
+        </div>
+        <div class="mb-1">
+          <label for="clave" class="form-label">Contraseña</label>
+          <div class="d-flex gap-2">
+            <input id="clave" name="clave" type="password" class="form-control is-invalid" autocomplete="current-password" value="clave1234" required aria-describedby="errorLogin">
+            <button type="button" class="btn btn-fm-borde" data-mostrar="clave" aria-pressed="false">Mostrar</button>
+          </div>
+        </div>
+        <p id="errorLogin" class="mensaje-error" role="alert"><i class="bi bi-exclamation-triangle" aria-hidden="true"></i>El usuario o la contraseña no coinciden. Intento 2 de 5.</p>
+        <label class="form-label mt-3" for="rolDemo">Rol (solo para recorrer la maqueta)</label>
+        <select id="rolDemo" class="form-select mb-3">
+          <option value="inicio.html">Gerente / asistente</option>
+          <option value="inicio-vendedor.html">Vendedor</option>
+          <option value="usuarios.html">Administrador</option>
+        </select>
+        <button type="submit" class="btn btn-fm w-100 mt-2">Ingresar</button>
+        <p class="text-center mt-3"><a class="btn-link-fm justify-content-center" href="#" data-bs-toggle="modal" data-bs-target="#modalClave">¿Olvidaste tu contraseña?</a></p>
+        <div class="aviso aviso-info fw-normal mt-3">¿Eres cliente? <a href="consulta-factura.html" class="fw-bold" style="color:var(--fm-info-texto)">Consulta tu factura aquí</a> sin crear cuenta.</div>
+      </form>
+    </main>
+  </div>
+  <div class="modal fade" id="modalClave" tabindex="-1" aria-labelledby="tituloClave" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title h5" id="tituloClave">Recuperar contraseña</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+      <div class="modal-body"><p>Las cuentas las administra el administrador del sistema. Solicítale que restablezca tu contraseña; recibirás una clave temporal en tu correo.</p></div>
+      <div class="modal-footer"><button type="button" class="btn btn-fm-borde" data-bs-dismiss="modal">Entendido</button></div>
+    </div></div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inicio vendedor | Forestmar</title>
+  <meta name="description" content="Panel de inicio del vendedor del vivero Forestmar.">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="fm-barra-movil d-lg-none">
+    <a class="fm-marca" href="inicio-vendedor.html"><img src="img/logo-forestmar.svg" alt="" width="40" height="40"><span><strong>Forestmar</strong></span></a>
+    <button class="btn btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral"><i class="bi bi-list" aria-hidden="true"></i> Menú</button>
+  </header>
+  <div class="fm-app">
+    <aside class="fm-sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="menuLateral" aria-label="Menú lateral">
+      <div class="offcanvas-header d-lg-none justify-content-end">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#menuLateral" aria-label="Cerrar menú"></button>
+      </div>
+      <nav class="offcanvas-body" aria-label="Menú principal">
+        <a class="fm-marca d-none d-lg-flex" href="inicio-vendedor.html">
+          <img src="img/logo-forestmar.svg" alt="">
+          <span><strong>Forestmar</strong><span>Vivero · Gestión</span></span>
+        </a>
+        <p class="seccion" id="sec-ventas">Ventas</p>
+        <ul class="nav flex-column gap-1" aria-labelledby="sec-ventas">
+          <li class="nav-item"><a class="nav-link" href="inicio-vendedor.html" aria-current="page"><i class="bi bi-house" aria-hidden="true"></i>Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="consultar-inventario.html"><i class="bi bi-search" aria-hidden="true"></i>Consultar inventario</a></li>
+          <li class="nav-item"><a class="nav-link" href="registrar-venta.html"><i class="bi bi-cart3" aria-hidden="true"></i>Registrar venta</a></li>
+          <li class="nav-item"><a class="nav-link" href="factura.html"><i class="bi bi-receipt" aria-hidden="true"></i>Facturas</a></li>
+        </ul>
+        <a class="nav-link salir" href="index.html"><i class="bi bi-box-arrow-left" aria-hidden="true"></i>Cerrar sesión</a>
+      </nav>
+    </aside>
+    <div class="fm-principal">
+      <header class="fm-encabezado">
+        <nav aria-label="Migas de pan"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="inicio-vendedor.html">Forestmar</a></li><li class="breadcrumb-item active" aria-current="page">Inicio</li></ol></nav>
+        <div class="fm-usuario">
+          <a class="ayuda d-none d-md-inline-flex" href="#ayuda" data-bs-toggle="modal" data-bs-target="#modalAyuda"><i class="bi bi-question-circle" aria-hidden="true"></i>Ayuda</a>
+          <span class="avatar" aria-hidden="true">CP</span>
+          <span class="nombre d-none d-sm-block"><strong>Camilo Pardo</strong><span>Rol: Vendedor</span></span>
+        </div>
+      </header>
+      <main id="contenido" class="fm-contenido">
+        <h1 class="mb-1">Buenos días, Camilo</h1>
+        <p class="text-apoyo mb-4">Punto de venta · sábado 17 de octubre de 2026</p>
+        <section class="row g-3 mb-3" aria-label="Indicadores del día">
+          <div class="col-12 col-md-4"><div class="fm-tarjeta kpi h-100"><p class="etiqueta mb-0">Mis ventas de hoy</p><p class="valor">$ 412.000</p><p class="small text-apoyo mb-0">7 facturas emitidas</p></div></div>
+          <div class="col-12 col-md-4"><div class="fm-tarjeta kpi h-100"><p class="etiqueta mb-0">Plantas disponibles</p><p class="valor">2.418</p><p class="small text-apoyo mb-0">46 especies</p></div></div>
+          <div class="col-12 col-md-4"><div class="fm-tarjeta kpi h-100"><p class="etiqueta mb-0">Última factura</p><p class="valor">FM-2026-00318</p><p class="small text-apoyo mb-0">10:42 a. m.</p></div></div>
+        </section>
+        <section class="fm-tarjeta" aria-labelledby="tAcc">
+          <h2 id="tAcc" class="mb-3">¿Qué deseas hacer?</h2>
+          <div class="row g-3">
+            <div class="col-12 col-md-4"><a class="btn btn-fm w-100" href="registrar-venta.html"><i class="bi bi-cart3" aria-hidden="true"></i>Registrar venta</a></div>
+            <div class="col-12 col-md-6 col-xxl-4"><a class="btn btn-fm-borde w-100" href="consultar-inventario.html"><i class="bi bi-search" aria-hidden="true"></i>Consultar inventario</a></div>
+            <div class="col-12 col-md-4"><a class="btn btn-fm-borde w-100" href="factura.html"><i class="bi bi-receipt" aria-hidden="true"></i>Facturas emitidas</a></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="tituloAyuda" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+      <div class="modal-header"><h2 class="modal-title h5" id="tituloAyuda">Ayuda</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+      <div class="modal-body"><p>Usa el menú lateral para ir a cada módulo. La opción resaltada indica dónde estás. Si tienes problemas para ingresar, comunícate con el administrador del sistema.</p></div>
+    </div></div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>

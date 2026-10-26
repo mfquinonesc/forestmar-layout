@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consulta tu factura | Forestmar</title>
+  <meta name="description" content="Consulta pública de facturas digitales del vivero Forestmar, sin crear cuenta.">
+  <link rel="icon" href="img/logo-forestmar.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/forestmar.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="fm-publico-header">
+    <a class="fm-marca m-0" href="consulta-factura.html"><img src="img/logo-forestmar.svg" alt=""><span><strong>Forestmar</strong><span>Consulta de facturas</span></span></a>
+    <a class="empleados" href="index.html">Iniciar sesión (empleados)</a>
+  </header>
+  <main id="contenido" class="container py-4" style="max-width:1100px">
+    <h1 class="mb-1">Consulta tu factura</h1>
+    <p class="text-apoyo mb-4">No necesitas crear una cuenta. Escribe los datos que aparecen en tu comprobante.</p>
+    <form class="fm-tarjeta mb-3" id="formConsulta" novalidate>
+      <div class="row g-3 align-items-start">
+        <div class="col-12 col-md-5"><label for="numFactura" class="form-label">Número de factura <span class="oblig">(obligatorio)</span></label><input id="numFactura" class="form-control" value="FM-2026-00318" required aria-describedby="formatoFactura" pattern="FM-[0-9]{4}-[0-9]{5}"><p id="formatoFactura" class="small text-apoyo mt-1 mb-0">Formato: FM-AAAA-00000</p></div>
+        <div class="col-12 col-md-4"><label for="docId" class="form-label">Documento de identidad <span class="oblig">(obligatorio)</span></label><input id="docId" class="form-control" inputmode="numeric" value="1020334556" required></div>
+        <div class="col-12 col-md-3 pt-md-4"><button type="submit" class="btn btn-fm w-100 mt-md-2">Consultar factura</button></div>
+      </div>
+    </form>
+    <section class="fm-tarjeta mb-3" aria-labelledby="tFactura" id="resultado">
+      <div class="d-flex justify-content-between flex-wrap gap-2">
+        <div><h2 id="tFactura" class="mb-0">Factura FM-2026-00318</h2><p class="small text-apoyo">17/10/2026 · Vivero Forestmar · 3 productos</p></div>
+        <p class="fs-3 fw-bold">$ 83.500</p>
+      </div>
+      <div class="table-responsive"><table class="table">
+        <caption class="visually-hidden">Productos de la factura</caption>
+        <thead><tr><th scope="col">Planta</th><th scope="col" class="text-end">Cant.</th><th scope="col" class="text-end">Subtotal</th></tr></thead>
+        <tbody>
+                <tr><td>Ficus benjamina</td><td class="text-end">2</td><td class="text-end">$ 44.000</td></tr>
+                <tr><td>Suculenta echeveria</td><td class="text-end">5</td><td class="text-end">$ 30.000</td></tr>
+                <tr><td>Helecho espada</td><td class="text-end">1</td><td class="text-end">$ 9.500</td></tr>
+        </tbody>
+      </table></div>
+      <div class="d-flex flex-wrap gap-3 align-items-center mt-3"><button type="button" class="btn btn-fm-verde"><i class="bi bi-download" aria-hidden="true"></i>Descargar PDF</button><button type="button" class="btn btn-fm-borde" data-imprimir><i class="bi bi-printer" aria-hidden="true"></i>Imprimir</button><a class="btn-link-fm" href="consulta-factura.html">Nueva consulta</a></div>
+    </section>
+    <p class="aviso aviso-error" role="note"><i class="bi bi-exclamation-triangle" aria-hidden="true"></i> Si los datos no coinciden verás: «No encontramos una factura con esos datos. Revisa el número y el documento.»</p>
+    <p class="small text-apoyo">Tus datos se tratan conforme a la Ley 1581 de 2012 de protección de datos personales.</p>
+  </main>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/forestmar.js"></script>
+</body>
+</html>
